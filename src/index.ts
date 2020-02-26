@@ -28,7 +28,7 @@ export class CustomerValidator extends AbstractValidator<ICustomer> {
             .isNull()
 
             .ruleFor('Customer Name', x => x.name)
-            .mustBe(this.validCustomerName)
+            .hasLength(0,0)            
             .withMessage('Customer Name should have a valid name.')
 
             .ruleFor('Address', x => x.address)
