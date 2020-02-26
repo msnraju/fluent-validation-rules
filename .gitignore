@@ -1,4 +1,12 @@
+tsconfig.vscode.json
+
 *.log
 .DS_Store
 node_modules
 dist
+lib
+
+.vscode
+
+package.json
+tsconfig.json
