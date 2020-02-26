@@ -4,10 +4,10 @@ import { STRING_TYPES } from '../../../types';
 import { IArrayValidatorBuilder } from './array-validator-builder.model';
 import { IEqualityValidatorBuilder } from './equality-validator-builder.model';
 
-export interface IStringValidatorBuilder<T> extends
-    IMemberValidatorBuilder<T, STRING_TYPES>,
-    IArrayValidatorBuilder<T>,
-    IEqualityValidatorBuilder<T, STRING_TYPES> {
-    hasLength: (min: number, max: number) => IPostMemberValidatorBuilder<T>;
-    matches: (expr: RegExp) => IPostMemberValidatorBuilder<T>;
+export interface IStringValidatorBuilder<T, TType> extends
+    IMemberValidatorBuilder<T, TType>,
+    IArrayValidatorBuilder<T, TType>,
+    IEqualityValidatorBuilder<T, TType> {
+    hasLength: (min: number, max: number) => IPostMemberValidatorBuilder<T, TType>;
+    matches: (expr: RegExp) => IPostMemberValidatorBuilder<T, TType>;
 }

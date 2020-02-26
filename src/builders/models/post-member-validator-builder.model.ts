@@ -3,7 +3,7 @@ import { IMemberValidationDescriptor } from './member-validation-descriptor.mode
 import { IModelValidationBuilder } from './model-validation-builder.model';
 import { IMemberValidatorBuilder } from './validators/member-validator-builder.model';
 
-export interface IPostMemberValidatorBuilder<T>
+export interface IPostMemberValidatorBuilder<T,TType>
     extends
     // IMemberValidatorBuilder<T,TType>,
     IWhenConditionBuilder<T>,

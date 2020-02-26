@@ -24,7 +24,7 @@ export class CustomerValidator extends AbstractValidator<ICustomer> {
 
         this.builder
 
-            .ruleFor('Customer Name', x => x.name)                        
+            .ruleFor('Customer Name', x => x.name)
             .isNull()
 
             .ruleFor('Customer Name', x => x.name)
