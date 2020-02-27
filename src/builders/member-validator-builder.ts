@@ -1,7 +1,6 @@
 import { IMemberValidatorBuilder } from "./models/validators/member-validator-builder.model";
 import { IValidationRule } from "../models/validation-rule.model";
 import { IPostMemberValidatorBuilder } from "./models/post-member-validator-builder.model";
-import { AbstractValidator } from "../abstract-validator";
 import { MustBeFunc } from "../types";
 import { PostMemberValidatorBuilder } from "./post-member-validator-builder";
 import { IMemberValidator } from "../models/validators/member-validator.model";
@@ -11,14 +10,14 @@ import { BooleanValidator } from "../validators/boolean-validator";
 import { ComparisonValidator } from "../validators/comparison-validator";
 import { StringValidator } from "../validators/string-validator";
 import { CommonValidator } from "../validators/common-validator";
-import { FluentModelValidationBuilder } from "./fluent-model-validation-builder";
+import { AbstractValidationBuilder } from "./abstract-validation-builder";
 
 export class MemberValidatorBuilder<T, TType> implements IMemberValidatorBuilder<T, TType>,
     IMemberValidator<TType> {
     private rule: IValidationRule<T>;
     private postMemberBuilder: IPostMemberValidatorBuilder<T, TType>;
 
-    constructor(validator: FluentModelValidationBuilder<T>, rule: IValidationRule<T>) {
+    constructor(validator: AbstractValidationBuilder<T>, rule: IValidationRule<T>) {
         this.rule = rule;
         this.postMemberBuilder = new PostMemberValidatorBuilder(validator, rule);
     }

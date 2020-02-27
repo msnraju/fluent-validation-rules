@@ -1,26 +1,23 @@
-import { IPostMemberValidatorBuilder } from "./models/post-member-validator-builder.model";
 import { IValidationRule } from "../models/validation-rule.model";
-import { WhenConditionFunc, WithMessageFuncArgument, MemberFunc, STRING_TYPES, NUMBER_TYPES, DATE_TYPES, BOOLEAN_TYPES, ARRAY_TYPES, OBJECT_TYPES } from "../types";
+import { WithMessageFuncArgument, MemberFunc, STRING_TYPES, NUMBER_TYPES, DATE_TYPES, BOOLEAN_TYPES, OBJECT_TYPES, ARRAY_TYPES } from "../types";
 import { IPostWhenConditionBuilder } from "./models/post-when-condition-builder.model";
 import { IValidationBuilder } from "./models/validation-builder.model";
-import { AbstractValidationBuilder } from "./abstract-validation-builder";
-import { PostWhenConditionBuilder } from "./post-when-condition-builder";
 import { IStringValidatorBuilder } from "./models/validators/string-validator-builder.model";
 import { INumberValidatorBuilder } from "./models/validators/number-validator-builder.model";
 import { IDateValidatorBuilder } from "./models/validators/date-validator-builder.model";
 import { IBooleanValidatorBuilder } from "./models/validators/boolean-validator-builder.model";
 import { IArrayValidatorBuilder } from "./models/validators/array-validator-builder.model";
 import { IMemberValidatorBuilder } from "./models/validators/member-validator-builder.model";
+import { AbstractValidationBuilder } from "./abstract-validation-builder";
 
-export class PostMemberValidatorBuilder<T, TType> implements IPostMemberValidatorBuilder<T, TType> {
-    private rule: IValidationRule<T>;
+export class PostWhenConditionBuilder<T> implements IPostWhenConditionBuilder<T> {
     private builder: AbstractValidationBuilder<T>;
-
+    private rule: IValidationRule<T>;
     constructor(builder: AbstractValidationBuilder<T>, rule: IValidationRule<T>) {
-        this.rule = rule;
         this.builder = builder;
+        this.rule = rule;
     }
-
+    
     ruleFor(member: string, accessor: MemberFunc<T, STRING_TYPES>): IStringValidatorBuilder<T, STRING_TYPES>;
     ruleFor(member: string, accessor: MemberFunc<T, NUMBER_TYPES>): INumberValidatorBuilder<T, NUMBER_TYPES>;
     ruleFor(member: string, accessor: MemberFunc<T, DATE_TYPES>): IDateValidatorBuilder<T, DATE_TYPES>;
@@ -37,11 +34,6 @@ export class PostMemberValidatorBuilder<T, TType> implements IPostMemberValidato
 
     ruleForObject<TType>(member: string, accessor: MemberFunc<T, TType>): IValidationBuilder<TType> {
         return this.builder.ruleForObject(member, accessor);
-    }
-
-    when(func: WhenConditionFunc<T>): IPostWhenConditionBuilder<T> {
-        this.rule.when = func;
-        return new PostWhenConditionBuilder(this.builder, this.rule);
     }
 
     withMessage<TType>(func: WithMessageFuncArgument<T, TType>): IValidationBuilder<T> {

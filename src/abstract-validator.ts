@@ -7,18 +7,18 @@ import { isString, isArray } from "util";
 import { ValidationError } from "./validation-error";
 
 export abstract class AbstractValidator<T> {
-    private _builder: FluentModelValidationBuilder<T>;
+    private _validation: FluentModelValidationBuilder<T>;
     private rules: Array<IValidationRule<T>>;
     private internalValidators: Array<InternalValidator<any, any, any>>;
 
     constructor() {
         this.rules = [];
         this.internalValidators = [];
-        this._builder = new FluentModelValidationBuilder<T>(this);
+        this._validation = new FluentModelValidationBuilder<T>(this);
     }
 
-    protected get builder(): FluentModelValidationBuilder<T> {
-        return this._builder;
+    protected get validation(): FluentModelValidationBuilder<T> {
+        return this._validation;
     }
 
     getChildValidator<Type, MType>(member: string, accessor: MemberFunc<T, MType>) {

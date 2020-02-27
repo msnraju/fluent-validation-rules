@@ -22,13 +22,14 @@ export class CustomerValidator extends AbstractValidator<ICustomer> {
     constructor() {
         super();
 
-        this.builder
-
+        this.validation
             .ruleFor('Customer Name', x => x.name)
             .isNull()
+            .when(x => x.address !== null)
+            .withMessage('Customer should be there when address entered.')
 
             .ruleFor('Customer Name', x => x.name)
-            .hasLength(0,0)            
+            .hasLength(0, 0)
             .withMessage('Customer Name should have a valid name.')
 
             .ruleFor('Address', x => x.address)
@@ -38,23 +39,21 @@ export class CustomerValidator extends AbstractValidator<ICustomer> {
             .ruleFor('Customer Name', x => x.name)
             .hasLength(10, 50)
             .withMessage('Customer Name is not matching length requirements')
-            
+
             .ruleFor('x', x => x.orders)
             .hasMaxLength(10)
-                        
+
             .ruleFor('No. of Employees', x => x.noOfEmployees)
             .isEqualTo(10)
             .when(x => x.isCompany);
 
-        this.builder.ruleForObject('Address', x => x.address)
+        this.validation.ruleForObject('Address', x => x.address)
             .ruleFor('Post Code', x => x.postcode)
             .isNotEmpty()
 
-        this.builder.ruleForEach('Order', x => x.orders)
+        this.validation.ruleForEach('Order', x => x.orders)
             .ruleFor('Amount', x => x.amount)
             .isGreaterThanOrEqualTo(100000)
-
-
     }
 
     private validCustomerName(value: string, customer: ICustomer): boolean {
