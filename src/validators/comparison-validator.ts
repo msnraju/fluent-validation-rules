@@ -1,6 +1,6 @@
-import { IComparisonValidator } from "../models/validators/comparison-validator.model";
-import { MemberFunc } from "../types";
-import { IValidationRule } from "../models/validation-rule.model";
+import { IComparisonValidator } from '../models/validators/comparison-validator.model';
+import { MemberFunc } from '../types';
+import { IValidationRule } from '../models/validation-rule.model';
 
 export class ComparisonValidator<T, TType> implements IComparisonValidator<TType> {
     private rule: IValidationRule<T>;
@@ -12,8 +12,9 @@ export class ComparisonValidator<T, TType> implements IComparisonValidator<TType
         this.rule.message = () => `${this.rule.member} should be less than ${value}.`;
         this.rule.validator = (m: T, p: MemberFunc<T, TType>) => {
             const value2 = p(m);
-            if (value2 && value2 < value)
+            if (value2 && value2 < value) {
                 return true;
+            }
 
             return false;
         }
@@ -23,8 +24,9 @@ export class ComparisonValidator<T, TType> implements IComparisonValidator<TType
         this.rule.message = () => `${this.rule.member} should be less than or equal to ${value}.`;
         this.rule.validator = (m: T, p: MemberFunc<T, TType>) => {
             const value2 = p(m);
-            if (value2 && value2 <= value)
+            if (value2 && value2 <= value) {
                 return true;
+            }
 
             return false;
         }
@@ -34,8 +36,9 @@ export class ComparisonValidator<T, TType> implements IComparisonValidator<TType
         this.rule.message = () => `${this.rule.member} should be greater than ${value}.`;
         this.rule.validator = (m: T, p: MemberFunc<T, TType>) => {
             const value2 = p(m);
-            if (value2 && value2 > value)
+            if (value2 && value2 > value) {
                 return true;
+            }
 
             return false;
         }
@@ -45,8 +48,9 @@ export class ComparisonValidator<T, TType> implements IComparisonValidator<TType
         this.rule.message = () => `${this.rule.member} should be greater than or equal to ${value}.`;
         this.rule.validator = (m: T, p: MemberFunc<T, TType>) => {
             const value2 = p(m);
-            if (value2 && value2 >= value)
+            if (value2 && value2 >= value) {
                 return true;
+            }
 
             return false;
         }
@@ -56,8 +60,9 @@ export class ComparisonValidator<T, TType> implements IComparisonValidator<TType
         this.rule.message = () => `${this.rule.member} should be between ${from} to ${to}.`;
         this.rule.validator = (m: T, p: MemberFunc<T, TType>) => {
             const value2 = p(m);
-            if (value2 && value2 >= from && value2 <= to)
+            if (value2 && value2 >= from && value2 <= to) {
                 return true;
+            }
 
             return false;
         }

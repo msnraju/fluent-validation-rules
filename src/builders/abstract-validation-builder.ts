@@ -1,15 +1,15 @@
-import { IValidationBuilder } from "./models/validation-builder.model";
-import { MemberFunc, STRING_TYPES, NUMBER_TYPES, DATE_TYPES, BOOLEAN_TYPES, ARRAY_TYPES, OBJECT_TYPES } from "../types";
-import { IStringValidatorBuilder } from "./models/validators/string-validator-builder.model";
-import { INumberValidatorBuilder } from "./models/validators/number-validator-builder.model";
-import { IDateValidatorBuilder } from "./models/validators/date-validator-builder.model";
-import { IBooleanValidatorBuilder } from "./models/validators/boolean-validator-builder.model";
-import { IArrayValidatorBuilder } from "./models/validators/array-validator-builder.model";
-import { IMemberValidatorBuilder } from "./models/validators/member-validator-builder.model";
-import { AbstractValidator } from "../abstract-validator";
-import { IValidationRule } from "../models/validation-rule.model";
-import { MemberValidatorBuilder } from "./member-validator-builder";
-import { ValidationRule } from "../validation-rule";
+import { IValidationBuilder } from './models/validation-builder.model';
+import { MemberFunc, STRING_TYPES, NUMBER_TYPES, DATE_TYPES, BOOLEAN_TYPES, ARRAY_TYPES, OBJECT_TYPES } from '../types';
+import { IStringValidatorBuilder } from './models/validators/string-validator-builder.model';
+import { INumberValidatorBuilder } from './models/validators/number-validator-builder.model';
+import { IDateValidatorBuilder } from './models/validators/date-validator-builder.model';
+import { IBooleanValidatorBuilder } from './models/validators/boolean-validator-builder.model';
+import { IArrayValidatorBuilder } from './models/validators/array-validator-builder.model';
+import { IMemberValidatorBuilder } from './models/validators/member-validator-builder.model';
+import { AbstractValidator } from '../abstract-validator';
+import { IValidationRule } from '../models/validation-rule.model';
+import { MemberValidatorBuilder } from './member-validator-builder';
+import { ValidationRule } from '../validation-rule';
 
 export abstract class AbstractValidationBuilder<T> implements IValidationBuilder<T> {
     private _validator: AbstractValidator<T>;

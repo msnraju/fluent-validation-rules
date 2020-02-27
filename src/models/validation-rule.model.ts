@@ -1,4 +1,4 @@
-import { MemberFunc, WhenConditionFunc, ValidatorFunc, WithMessageFuncArgument } from "../types";
+import { MemberFunc, WhenConditionFunc, ValidatorFunc, WithMessageFuncArgument } from '../types';
 
 
 export interface IValidationRule<T> {

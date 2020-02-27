@@ -1,6 +1,6 @@
 export type WithMessageFunc<T, TType> = (value: TType, model: T) => string;
 export type WithMessageFuncArgument<T, TType> = WithMessageFunc<T, TType> | string;
-export type MustBeFunc<T> = (value: any, customer: T) => boolean;
+export type MustBeFunc<T, TType> = (value: TType, customer: T) => boolean;
 
 export type MemberFunc<T, TType> = (m: T) => TType;
 export type WhenConditionFunc<T> = (m: T) => boolean;

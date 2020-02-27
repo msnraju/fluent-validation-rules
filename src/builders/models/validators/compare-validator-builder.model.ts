@@ -1,4 +1,4 @@
-import { IPostMemberValidatorBuilder } from "../post-member-validator-builder.model";
+import { IPostMemberValidatorBuilder } from '../post-member-validator-builder.model';
 
 export interface ICompareValidatorBuilder<T, TType> {
     isLessThan: (value: TType) => IPostMemberValidatorBuilder<T, TType>;

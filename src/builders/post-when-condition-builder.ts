@@ -1,14 +1,14 @@
-import { IValidationRule } from "../models/validation-rule.model";
-import { WithMessageFuncArgument, MemberFunc, STRING_TYPES, NUMBER_TYPES, DATE_TYPES, BOOLEAN_TYPES, OBJECT_TYPES, ARRAY_TYPES } from "../types";
-import { IPostWhenConditionBuilder } from "./models/post-when-condition-builder.model";
-import { IValidationBuilder } from "./models/validation-builder.model";
-import { IStringValidatorBuilder } from "./models/validators/string-validator-builder.model";
-import { INumberValidatorBuilder } from "./models/validators/number-validator-builder.model";
-import { IDateValidatorBuilder } from "./models/validators/date-validator-builder.model";
-import { IBooleanValidatorBuilder } from "./models/validators/boolean-validator-builder.model";
-import { IArrayValidatorBuilder } from "./models/validators/array-validator-builder.model";
-import { IMemberValidatorBuilder } from "./models/validators/member-validator-builder.model";
-import { AbstractValidationBuilder } from "./abstract-validation-builder";
+import { IValidationRule } from '../models/validation-rule.model';
+import { WithMessageFuncArgument, MemberFunc, STRING_TYPES, NUMBER_TYPES, DATE_TYPES, BOOLEAN_TYPES, OBJECT_TYPES, ARRAY_TYPES } from '../types';
+import { IPostWhenConditionBuilder } from './models/post-when-condition-builder.model';
+import { IValidationBuilder } from './models/validation-builder.model';
+import { IStringValidatorBuilder } from './models/validators/string-validator-builder.model';
+import { INumberValidatorBuilder } from './models/validators/number-validator-builder.model';
+import { IDateValidatorBuilder } from './models/validators/date-validator-builder.model';
+import { IBooleanValidatorBuilder } from './models/validators/boolean-validator-builder.model';
+import { IArrayValidatorBuilder } from './models/validators/array-validator-builder.model';
+import { IMemberValidatorBuilder } from './models/validators/member-validator-builder.model';
+import { AbstractValidationBuilder } from './abstract-validation-builder';
 
 export class PostWhenConditionBuilder<T> implements IPostWhenConditionBuilder<T> {
     private builder: AbstractValidationBuilder<T>;

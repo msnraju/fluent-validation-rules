@@ -1,4 +1,4 @@
-import { IValidationError } from "./models/validation-error.model";
+import { IValidationError } from './models/validation-error.model';
 
 export class ValidationError implements IValidationError {
     [key: string]: any;

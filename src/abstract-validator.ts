@@ -1,10 +1,10 @@
-import { FluentModelValidationBuilder } from "./builders/fluent-model-validation-builder";
-import { IValidationRule } from "./models/validation-rule.model";
-import { IValidationResult } from "./models/validation-result.model";
-import { MemberFunc } from "./types";
-import { ValidationResult } from "./validation-result";
-import { isString, isArray } from "util";
-import { ValidationError } from "./validation-error";
+import { FluentModelValidationBuilder } from './builders/fluent-model-validation-builder';
+import { IValidationRule } from './models/validation-rule.model';
+import { IValidationResult } from './models/validation-result.model';
+import { MemberFunc } from './types';
+import { ValidationResult } from './validation-result';
+import { isString, isArray } from 'util';
+import { ValidationError } from './validation-error';
 
 export abstract class AbstractValidator<T> {
     private _validation: FluentModelValidationBuilder<T>;
@@ -28,13 +28,15 @@ export abstract class AbstractValidator<T> {
     }
 
     validate(model: T): IValidationResult {
-        if (!model)
+        if (!model) {
             throw new Error('Model should not be null');
+        }
 
         const result = new ValidationResult();
         this.rules.forEach((rule) => {
-            if (rule.when && rule.when(model) !== true)
+            if (rule.when && rule.when(model) !== true) {
                 return;
+            }
 
             if (rule.validator && !rule.validator(model, rule.accessor)) {
                 const message = isString(rule.message) ?
@@ -59,12 +61,13 @@ export abstract class AbstractValidator<T> {
                 })
             } else {
                 const innerResult = validator.validate(value);
-                if (!innerResult.isValid)
+                if (!innerResult.isValid) {
                     result.errors.push(new ValidationError(validator.member, innerResult.errors));
+                }
             }
         });
 
-        result.isValid = result.errors.length == 0;
+        result.isValid = result.errors.length === 0;
         return result;
     }
 
@@ -76,14 +79,11 @@ export abstract class AbstractValidator<T> {
 class InternalValidator<PType, T, MType> extends AbstractValidator<T> {
     private _member: string;
     private _accessor: MemberFunc<PType, MType>;
-
     constructor(member: string, accessor: MemberFunc<PType, MType>) {
         super();
-
         this._member = member;
         this._accessor = accessor;
     }
-
     get member() { return this._member; }
     get accessor() { return this._accessor; }
 }
