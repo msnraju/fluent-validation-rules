@@ -2,10 +2,9 @@ import { IPostMemberValidatorBuilder } from '../post-member-validator-builder.mo
 import { MustBeFunc } from '../../../types';
 
 export interface IMemberValidatorBuilder<T, TType> {
-    isUndefined(): IPostMemberValidatorBuilder<T>;
-    isNotUndefined(): IPostMemberValidatorBuilder<T>;
-    isNull(): IPostMemberValidatorBuilder<T>;
-    isNotNull(): IPostMemberValidatorBuilder<T>;
-    mustBe(func: MustBeFunc<T, TType>): IPostMemberValidatorBuilder<T>;
+  isUndefined(): IPostMemberValidatorBuilder<T>;
+  isNotUndefined(): IPostMemberValidatorBuilder<T>;
+  isNull(): IPostMemberValidatorBuilder<T>;
+  isNotNull(): IPostMemberValidatorBuilder<T>;
+  mustBe(func: MustBeFunc<T, TType>): IPostMemberValidatorBuilder<T>;
 }
-

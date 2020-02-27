@@ -3,8 +3,6 @@ import { IMemberValidationDescriptor } from './member-validation-descriptor.mode
 import { IValidationBuilder } from './validation-builder.model';
 
 export interface IPostMemberValidatorBuilder<T>
-    extends
-    IWhenConditionBuilder<T>,
+  extends IWhenConditionBuilder<T>,
     IMemberValidationDescriptor<T>,
-    IValidationBuilder<T> { }
-
+    IValidationBuilder<T> {}

@@ -4,8 +4,9 @@ import { IDateValidator } from './date-validator.model';
 import { IBooleanValidator } from './boolean-validator.model';
 import { IArrayValidator } from './array-validator.model';
 
-export interface IMemberValidator extends IStringValidator, INumberValidator, IDateValidator, IBooleanValidator, IArrayValidator {
-
-}
-
-
+export interface IMemberValidator
+  extends IStringValidator,
+    INumberValidator,
+    IDateValidator,
+    IBooleanValidator,
+    IArrayValidator {}

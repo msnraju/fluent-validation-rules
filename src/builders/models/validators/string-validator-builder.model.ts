@@ -3,10 +3,10 @@ import { IPostMemberValidatorBuilder } from '../post-member-validator-builder.mo
 import { IArrayValidatorBuilder } from './array-validator-builder.model';
 import { IEqualityValidatorBuilder } from './equality-validator-builder.model';
 
-export interface IStringValidatorBuilder<T, TType> extends
-    IMemberValidatorBuilder<T, TType>,
+export interface IStringValidatorBuilder<T, TType>
+  extends IMemberValidatorBuilder<T, TType>,
     IArrayValidatorBuilder<T, TType>,
     IEqualityValidatorBuilder<T, TType> {
-    hasLength: (min: number, max: number) => IPostMemberValidatorBuilder<T, TType>;
-    matches: (expr: RegExp) => IPostMemberValidatorBuilder<T, TType>;
+  hasLength: (min: number, max: number) => IPostMemberValidatorBuilder<T>;
+  matches: (expr: RegExp) => IPostMemberValidatorBuilder<T>;
 }

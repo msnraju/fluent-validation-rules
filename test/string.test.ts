@@ -2,213 +2,203 @@ import { AbstractValidator } from '../src/abstract-validator';
 import { ITestModel, getModelTemplate } from './prepare';
 
 describe('String Tests', () => {
-    it('isNull', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isNull', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isNull();
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isNull();
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(false);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
 
-    it('isNotNull', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isNotNull', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isNotNull();
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isNotNull();
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('isEmpty', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isEmpty', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isEmpty();
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isEmpty();
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(false);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
 
-    it('isNotEmpty', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isNotEmpty', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isNotEmpty();
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isNotEmpty();
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('isEqualTo', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isEqualTo', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isEqualTo('string');
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isEqualTo('string');
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('isEqualTo -ve', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isEqualTo -ve', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isEqualTo('string2');
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isEqualTo('string2');
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(false);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
 
-    it('isNotEqualTo', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isNotEqualTo', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isNotEqualTo('string2');
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('string', x => x.string)
+          .isNotEqualTo('string2');
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('isNotEqualTo -ve', () => {
-        const model: ITestModel = getModelTemplate();
+  it('isNotEqualTo -ve', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .isNotEqualTo('string');
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).isNotEqualTo('string');
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(false);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
 
-    it('hasLength', () => {
-        const model: ITestModel = getModelTemplate();
+  it('hasLength', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .hasLength(6, 6);
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).hasLength(6, 6);
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('hasMaxLength', () => {
-        const model: ITestModel = getModelTemplate();
+  it('hasMaxLength', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .hasMaxLength(10);
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).hasMaxLength(10);
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('hasMinLength', () => {
-        const model: ITestModel = getModelTemplate();
+  it('hasMinLength', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .hasMinLength(10);
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).hasMinLength(10);
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(false);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
 
-    it('mustBe', () => {
-        const model: ITestModel = getModelTemplate();
+  it('mustBe', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .mustBe((v) => v === 'string');
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('string', x => x.string)
+          .mustBe(value => value === 'string');
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('matches', () => {
-        const model: ITestModel = getModelTemplate();
+  it('matches', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .matches(/[a-z]+/);
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).matches(/[a-z]+/);
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(true);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
 
-    it('matches -ve', () => {
-        const model: ITestModel = getModelTemplate();
+  it('matches -ve', () => {
+    const model: ITestModel = getModelTemplate();
 
-        class ModelValidator extends AbstractValidator<ITestModel> {
-            constructor() {
-                super();
-                this.validation.ruleFor('string', x => x.string)
-                    .matches(/[0-9]+/);
-            }
-        };
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation.ruleFor('string', x => x.string).matches(/[0-9]+/);
+      }
+    }
 
-        const result = new ModelValidator().validate(model);
-        expect(result.isValid).toEqual(false);
-    });
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
 });

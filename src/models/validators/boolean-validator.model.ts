@@ -1,4 +1,4 @@
 export interface IBooleanValidator {
-    isTrue: () => void;
-    isFalse: () => void;
+  isTrue: () => void;
+  isFalse: () => void;
 }

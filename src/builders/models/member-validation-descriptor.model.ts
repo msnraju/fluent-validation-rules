@@ -1,7 +1,6 @@
 import { IValidationBuilder } from './validation-builder.model';
-import { WithMessageFuncArgument } from '../../types';
+import { WithMsgFuncArg } from '../../types';
 
 export interface IMemberValidationDescriptor<T> extends IValidationBuilder<T> {
-    withMessage<TType>(func: WithMessageFuncArgument<T,TType>): IValidationBuilder<T>;
+  withMessage<TType>(func: WithMsgFuncArg<T, TType>): IValidationBuilder<T>;
 }
-

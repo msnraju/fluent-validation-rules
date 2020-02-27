@@ -1,2 +1,1 @@
-export interface INumberValidator {
-}
+export interface INumberValidator {}

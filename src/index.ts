@@ -1,2 +1,2 @@
 import { AbstractValidator } from './abstract-validator';
-export { AbstractValidator }
+export { AbstractValidator };
