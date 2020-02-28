@@ -1,11 +1,11 @@
-import { AbstractValidator } from '../src/abstract-validator';
+import { AbstractFluentValidator } from '../src/abstract-fluent-validator';
 import { ITestModel, getModelTemplate } from './prepare';
 
 describe('Optional String Tests', () => {
   it('isUndefined', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -21,7 +21,7 @@ describe('Optional String Tests', () => {
   it('isUndefined -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -37,7 +37,7 @@ describe('Optional String Tests', () => {
   it('isNotUndefined', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -53,7 +53,7 @@ describe('Optional String Tests', () => {
   it('isNotUndefined -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -69,7 +69,7 @@ describe('Optional String Tests', () => {
   it('mustBe -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -85,7 +85,7 @@ describe('Optional String Tests', () => {
   it('hasMaxLength', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -101,7 +101,7 @@ describe('Optional String Tests', () => {
   it('hasMaxLength -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -117,7 +117,7 @@ describe('Optional String Tests', () => {
   it('hasMinLength', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -133,7 +133,7 @@ describe('Optional String Tests', () => {
   it('hasMinLength -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.optionalString = 'optionalString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation

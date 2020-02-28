@@ -1,11 +1,11 @@
-import { AbstractValidator } from '../src/abstract-validator';
+import { AbstractFluentValidator } from '../src/abstract-fluent-validator';
 import { ITestModel, getModelTemplate, ERROR_MESSAGE } from './prepare';
 
 describe('String Tests', () => {
   it('isNull', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isNull();
@@ -19,7 +19,7 @@ describe('String Tests', () => {
   it('isNotNull', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isNotNull();
@@ -33,7 +33,7 @@ describe('String Tests', () => {
   it('isEmpty', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isEmpty();
@@ -47,7 +47,7 @@ describe('String Tests', () => {
   it('isNotEmpty', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isNotEmpty();
@@ -61,7 +61,7 @@ describe('String Tests', () => {
   it('isEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isEqualTo('string');
@@ -75,7 +75,7 @@ describe('String Tests', () => {
   it('isEqualTo -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isEqualTo('string2');
@@ -89,7 +89,7 @@ describe('String Tests', () => {
   it('isNotEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -105,7 +105,7 @@ describe('String Tests', () => {
   it('isNotEqualTo -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).isNotEqualTo('string');
@@ -119,7 +119,7 @@ describe('String Tests', () => {
   it('hasLength', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).hasLength(6, 6);
@@ -133,7 +133,7 @@ describe('String Tests', () => {
   it('hasMaxLength', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).hasMaxLength(10);
@@ -147,7 +147,7 @@ describe('String Tests', () => {
   it('hasMinLength', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).hasMinLength(10);
@@ -161,7 +161,7 @@ describe('String Tests', () => {
   it('mustBe', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -177,7 +177,7 @@ describe('String Tests', () => {
   it('matches', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).matches(/[a-z]+/);
@@ -191,7 +191,7 @@ describe('String Tests', () => {
   it('matches -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).matches(/[0-9]+/);
@@ -205,7 +205,7 @@ describe('String Tests', () => {
   it('chain validations', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -223,7 +223,7 @@ describe('String Tests', () => {
   });
 
   it('empty model', () => {
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -240,7 +240,7 @@ describe('String Tests', () => {
   it('message function', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -257,7 +257,7 @@ describe('String Tests', () => {
   it('message function', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -269,5 +269,67 @@ describe('String Tests', () => {
 
     const result = new ModelValidator().validate(model);
     expect(result.isValid).toEqual(false);
+  });
+
+  it('tiger', () => {
+    interface IAnimal {
+      name: string;
+      legs: number;
+      canFly: boolean;
+      canWalk: boolean;
+    }
+
+    const tiger: IAnimal = {
+      name: 'tiger',
+      legs: 4,
+      canFly: false,
+      canWalk: true,
+    };
+
+    class AnimalValidator extends AbstractFluentValidator<IAnimal> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('legs', x => x.legs)
+          .isEqualTo(4)
+          .when(x => x.name === 'tiger') // when condition is optional
+          .withMessage('Tiger should have 4 legs') // message is optional
+          .ruleFor('canFly', x => x.canFly)
+          .isFalse()
+          .withMessage('Tigers cant fly')
+          .ruleFor('canWalk', x => x.canWalk)
+          .isTrue()
+          .withMessage('Tigers can walk');
+      }
+    }
+
+    const result = new AnimalValidator().validate(tiger);
+    console.log(result.isValid);
+    console.log(result.errors);
+
+    const bird: IAnimal = {
+      name: 'duck',
+      legs: 2,
+      canFly: true,
+      canWalk: true,
+    };
+
+    class BirdValidator extends AbstractFluentValidator<IAnimal> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('legs', x => x.legs)
+          .isEqualTo(2)
+          .when(x => x.name === 'duck')
+          .ruleFor('canFly', x => x.canFly)
+          .isTrue()
+          .ruleFor('canWalk', x => x.canWalk)
+          .isTrue();
+      }
+    }
+
+    const birdResult = new BirdValidator().validate(bird);
+    console.log(birdResult.isValid);
+    console.log(birdResult.errors);
   });
 });

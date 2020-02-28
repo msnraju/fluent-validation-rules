@@ -1,11 +1,11 @@
-import { AbstractValidator } from '../src/abstract-validator';
+import { AbstractFluentValidator } from '../src/abstract-fluent-validator';
 import { ITestModel, getModelTemplate, ERROR_MESSAGE } from './prepare';
 
 describe('Object Tests', () => {
   it('object member isEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -22,7 +22,7 @@ describe('Object Tests', () => {
   it('object member isEqualTo when', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -41,7 +41,7 @@ describe('Object Tests', () => {
   it('object member isEqualTo when', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -60,7 +60,7 @@ describe('Object Tests', () => {
   it('post when', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
 
@@ -81,7 +81,7 @@ describe('Object Tests', () => {
   it('post member chain validations', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation

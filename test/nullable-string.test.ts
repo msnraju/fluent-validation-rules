@@ -1,11 +1,11 @@
-import { AbstractValidator } from '../src/abstract-validator';
+import { AbstractFluentValidator } from '../src/abstract-fluent-validator';
 import { ITestModel, getModelTemplate } from './prepare';
 
 describe('Nullable String Tests', () => {
   it('isNull', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -20,7 +20,7 @@ describe('Nullable String Tests', () => {
 
   it('isNotNull', () => {
     const model: ITestModel = getModelTemplate();
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -36,7 +36,7 @@ describe('Nullable String Tests', () => {
   it('isEmpty', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -52,7 +52,7 @@ describe('Nullable String Tests', () => {
   it('isEmpty -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'nullableString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -68,7 +68,7 @@ describe('Nullable String Tests', () => {
   it('isEmpty -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = '';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -84,7 +84,7 @@ describe('Nullable String Tests', () => {
   it('isNotEmpty', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -100,7 +100,7 @@ describe('Nullable String Tests', () => {
   it('isEqualTo', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'nullableString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -116,7 +116,7 @@ describe('Nullable String Tests', () => {
   it('isNotEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -132,7 +132,7 @@ describe('Nullable String Tests', () => {
   it('hasLength - valid range', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'nullableString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -148,7 +148,7 @@ describe('Nullable String Tests', () => {
   it('hasLength - invalid range', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'nullableString';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -164,7 +164,7 @@ describe('Nullable String Tests', () => {
   it('hasMaxLength', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -180,7 +180,7 @@ describe('Nullable String Tests', () => {
   it('hasMinLength', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -196,7 +196,7 @@ describe('Nullable String Tests', () => {
   it('mustBe', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'string';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -212,7 +212,7 @@ describe('Nullable String Tests', () => {
   it('matches', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'string';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -228,7 +228,7 @@ describe('Nullable String Tests', () => {
   it('matches -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.nullableString = 'string';
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation

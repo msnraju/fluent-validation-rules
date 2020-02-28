@@ -1,11 +1,11 @@
-import { AbstractValidator } from '../src/abstract-validator';
+import { AbstractFluentValidator } from '../src/abstract-fluent-validator';
 import { ITestModel, getModelTemplate, ERROR_MESSAGE } from './prepare';
 
 describe('Array Tests', () => {
   it('hasMaxLength', () => {
     const model: ITestModel = getModelTemplate();
     model.array = ['1', '2'];
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('array', x => x.array).hasMaxLength(5);
@@ -19,7 +19,7 @@ describe('Array Tests', () => {
   it('hasMaxLength -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.array = ['1', '2'];
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('array', x => x.array).hasMaxLength(1);
@@ -33,7 +33,7 @@ describe('Array Tests', () => {
   it('hasMinLength', () => {
     const model: ITestModel = getModelTemplate();
     model.array = ['1', '2'];
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -51,7 +51,7 @@ describe('Array Tests', () => {
   it('hasMinLength -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.array = ['1', '2'];
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -68,7 +68,7 @@ describe('Array Tests', () => {
   it('when -ve', () => {
     const model: ITestModel = getModelTemplate();
     model.array = ['1', '2'];
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -86,7 +86,7 @@ describe('Array Tests', () => {
   it('post when chain validations', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -106,7 +106,7 @@ describe('Array Tests', () => {
   it('post member chain validations', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation

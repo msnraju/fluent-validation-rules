@@ -1,11 +1,11 @@
-import { AbstractValidator } from '../src/abstract-validator';
+import { AbstractFluentValidator } from '../src/abstract-fluent-validator';
 import { ITestModel, getModelTemplate } from './prepare';
 
 describe('Number Tests', () => {
   it('isNull', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isNull();
@@ -19,7 +19,7 @@ describe('Number Tests', () => {
   it('isNotNull', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isNotNull();
@@ -33,7 +33,7 @@ describe('Number Tests', () => {
   it('isEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isEqualTo(1000);
@@ -47,7 +47,7 @@ describe('Number Tests', () => {
   it('isNotEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isNotEqualTo(100);
@@ -61,7 +61,7 @@ describe('Number Tests', () => {
   it('mustBe', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -77,7 +77,7 @@ describe('Number Tests', () => {
   it('isLessThan', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isLessThan(1100);
@@ -91,7 +91,7 @@ describe('Number Tests', () => {
   it('isLessThan -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isLessThan(110);
@@ -105,7 +105,7 @@ describe('Number Tests', () => {
   it('isLessThanOrEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -121,7 +121,7 @@ describe('Number Tests', () => {
   it('isLessThanOrEqualT -veo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -137,7 +137,7 @@ describe('Number Tests', () => {
   it('isGreaterThan', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isGreaterThan(100);
@@ -151,7 +151,7 @@ describe('Number Tests', () => {
   it('isGreaterThan -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isGreaterThan(10000);
@@ -165,7 +165,7 @@ describe('Number Tests', () => {
   it('isGreaterThanOrEqualTo', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -181,7 +181,7 @@ describe('Number Tests', () => {
   it('isGreaterThanOrEqualTo -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation
@@ -197,7 +197,7 @@ describe('Number Tests', () => {
   it('isBetween', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation.ruleFor('number', x => x.number).isBetween(100, 1100);
@@ -211,7 +211,7 @@ describe('Number Tests', () => {
   it('isBetween -ve', () => {
     const model: ITestModel = getModelTemplate();
 
-    class ModelValidator extends AbstractValidator<ITestModel> {
+    class ModelValidator extends AbstractFluentValidator<ITestModel> {
       constructor() {
         super();
         this.validation

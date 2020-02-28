@@ -6,7 +6,7 @@ import { ValidationResult } from './validation-result';
 import { isString, isArray } from 'util';
 import { ValidationError } from './validation-error';
 
-export abstract class AbstractValidator<T> {
+export abstract class AbstractFluentValidator<T> {
   private _validation: FluentModelValidationBuilder<T>;
   private rules: Array<IValidationRule<T>>;
   private internalValidators: Array<InternalValidator<any, any, any>>;
@@ -82,7 +82,7 @@ export abstract class AbstractValidator<T> {
   }
 }
 
-class InternalValidator<PType, T, MType> extends AbstractValidator<T> {
+class InternalValidator<PType, T, MType> extends AbstractFluentValidator<T> {
   private _member: string;
   private _accessor: MemberFunc<PType, MType>;
 

@@ -14,16 +14,16 @@ import { IDateValidatorBuilder } from './models/validators/date-validator-builde
 import { IBooleanValidatorBuilder } from './models/validators/boolean-validator-builder.model';
 import { IArrayValidatorBuilder } from './models/validators/array-validator-builder.model';
 import { IMemberValidatorBuilder } from './models/validators/member-validator-builder.model';
-import { AbstractValidator } from '../abstract-validator';
+import { AbstractFluentValidator } from '../abstract-fluent-validator';
 import { IValidationRule } from '../models/validation-rule.model';
 import { MemberValidatorBuilder } from './member-validator-builder';
 import { ValidationRule } from '../validation-rule';
 
 export abstract class AbstractValidationBuilder<T>
   implements IValidationBuilder<T> {
-  private _validator: AbstractValidator<T>;
+  private _validator: AbstractFluentValidator<T>;
 
-  constructor(validator: AbstractValidator<T>) {
+  constructor(validator: AbstractFluentValidator<T>) {
     this._validator = validator;
   }
 
@@ -32,7 +32,7 @@ export abstract class AbstractValidationBuilder<T>
   }
 
   abstract getNewInstance<TType>(
-    validator: AbstractValidator<TType>
+    validator: AbstractFluentValidator<TType>
   ): AbstractValidationBuilder<TType>;
 
   ruleFor(
