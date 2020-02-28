@@ -145,5 +145,4 @@ describe('Optional String Tests', () => {
     const result = new ModelValidator().validate(model);
     expect(result.isValid).toEqual(false);
   });
-
 });
