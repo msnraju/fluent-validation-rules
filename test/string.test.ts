@@ -304,8 +304,7 @@ describe('String Tests', () => {
     }
 
     const result = new AnimalValidator().validate(tiger);
-    console.log(result.isValid);
-    console.log(result.errors);
+    expect(result.isValid).toEqual(true);
 
     const bird: IAnimal = {
       name: 'duck',
@@ -329,7 +328,6 @@ describe('String Tests', () => {
     }
 
     const birdResult = new BirdValidator().validate(bird);
-    console.log(birdResult.isValid);
-    console.log(birdResult.errors);
+    expect(birdResult.isValid).toEqual(true);
   });
 });

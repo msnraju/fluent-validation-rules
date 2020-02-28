@@ -1,3 +1,6 @@
 export interface IValidationError {
-  [key: string]: any;
+  member: string;
+  message: string;
+  index?: number;
+  errors?: Array<IValidationError>;
 }

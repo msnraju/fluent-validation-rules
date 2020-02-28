@@ -57,17 +57,25 @@ export abstract class AbstractFluentValidator<T> {
         value.forEach((item, index) => {
           const innerResult = validator.validate(item);
           if (!innerResult.isValid) {
-            const error: any = {};
-            error[validator.member] = innerResult.errors;
-            error.index = index;
-            result.errors.push(error);
+            result.errors.push(
+              new ValidationError(
+                validator.member,
+                'Validation Errors',
+                innerResult.errors,
+                (index = index)
+              )
+            );
           }
         });
       } else {
         const innerResult = validator.validate(value);
         if (!innerResult.isValid) {
           result.errors.push(
-            new ValidationError(validator.member, innerResult.errors)
+            new ValidationError(
+              validator.member,
+              'Validation Errors',
+              innerResult.errors
+            )
           );
         }
       }
