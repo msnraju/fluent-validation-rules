@@ -1,5 +1,5 @@
 import { AbstractValidator } from '../src/abstract-validator';
-import { ITestModel, getModelTemplate } from './prepare';
+import { ITestModel, getModelTemplate, ERROR_MESSAGE } from './prepare';
 
 describe('String Tests', () => {
   it('isNull', () => {
@@ -195,6 +195,75 @@ describe('String Tests', () => {
       constructor() {
         super();
         this.validation.ruleFor('string', x => x.string).matches(/[0-9]+/);
+      }
+    }
+
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
+
+  it('chain validations', () => {
+    const model: ITestModel = getModelTemplate();
+
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('string', x => x.string)
+          .hasMinLength(5)
+          .when(x => x.optionalString === undefined)
+          .ruleFor('string', x => x.string)
+          .hasMaxLength(50)
+          .withMessage(ERROR_MESSAGE);
+      }
+    }
+
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(true);
+  });
+
+  it('empty model', () => {
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('string', x => x.string)
+          .hasMinLength(5)
+          .withMessage(ERROR_MESSAGE);
+      }
+    }
+
+    const result = new ModelValidator().validate(null as any);
+    expect(result.isValid).toEqual(false);
+  });
+
+  it('message function', () => {
+    const model: ITestModel = getModelTemplate();
+
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('string', x => x.string)
+          .isEmpty()
+          .withMessage((value, m) => `${value} = ${m.string}`);
+      }
+    }
+
+    const result = new ModelValidator().validate(model);
+    expect(result.isValid).toEqual(false);
+  });
+
+  it('message function', () => {
+    const model: ITestModel = getModelTemplate();
+
+    class ModelValidator extends AbstractValidator<ITestModel> {
+      constructor() {
+        super();
+        this.validation
+          .ruleFor('string', x => x.string)
+          .isEmpty()
+          .withMessage((value, m) => `${value} = ${m.string}`);
       }
     }
 

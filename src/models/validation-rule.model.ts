@@ -10,5 +10,5 @@ export interface IValidationRule<T> {
   accessor: MemberFunc<T, any>;
   when?: WhenConditionFunc<T>;
   validator?: ValidatorFunc<T, any>;
-  message?: WithMsgFuncArg<T, any>;
+  message: WithMsgFuncArg<T, any>;
 }

@@ -25,17 +25,19 @@ export abstract class AbstractValidator<T> {
     member: string,
     accessor: MemberFunc<T, MType>
   ) {
+    // tslint:disable-next-line: no-use-before-declare
     const validator = new InternalValidator<T, Type, MType>(member, accessor);
     this.internalValidators.push(validator);
     return validator;
   }
 
   validate(model: T): IValidationResult {
+    const result = new ValidationResult();
     if (!model) {
-      throw new Error('Model should not be null');
+      result.isValid = false;
+      return result;
     }
 
-    const result = new ValidationResult();
     this.rules.forEach(rule => {
       if (rule.when && rule.when(model) !== true) {
         return;
@@ -44,9 +46,7 @@ export abstract class AbstractValidator<T> {
       if (rule.validator && !rule.validator(model, rule.accessor)) {
         const message = isString(rule.message)
           ? rule.message
-          : rule.message
-          ? rule.message(rule.accessor(model), model)
-          : '';
+          : rule.message(rule.accessor(model), model);
         result.errors.push(new ValidationError(rule.member, message));
       }
     });

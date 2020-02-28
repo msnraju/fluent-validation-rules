@@ -1,3 +1,7 @@
+export interface ITestObject {
+  name: string;
+}
+
 export interface ITestModel {
   string: string;
   nullableString: string | null;
@@ -33,6 +37,10 @@ export interface ITestModel {
   nullableDate: Date | null;
   optionalDate?: Date;
   optionalNullableDate?: Date | null;
+
+  array: Array<string>;
+  object: ITestObject;
+  objectArray: Array<ITestObject>;
 }
 
 export const ERROR_MESSAGE = 'TEST MESSAGE';
@@ -57,5 +65,9 @@ export const getModelTemplate = (): ITestModel => {
 
     date: new Date('01-01-2020'),
     nullableDate: null,
+
+    array: [],
+    object: { name: 'name' },
+    objectArray: [{ name: 'name' }, { name: 'name2' }],
   };
 };

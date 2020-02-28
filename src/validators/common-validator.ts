@@ -54,7 +54,7 @@ export class CommonValidator<T, TType> {
   isNotUndefined() {
     this.rule.message = () => `${this.rule.member} should not be undefined.`;
     this.rule.validator = (m: T, p: MemberFunc<T, TType>) => {
-      if (p(m) === undefined) {
+      if (p(m) !== undefined) {
         return true;
       }
 
